@@ -6,7 +6,7 @@
 
 Official implementation for the paper:
 > **[Simulating Physics with Implicit Neural Spatial Representations](https://www.cs.columbia.edu/cg/local-deformation/)**  
-> [Honglin Chen*](https://www.cs.columbia.edu/~honglinchen/)<sup>1</sup>, [Changxi Zheng](http://www.cs.columbia.edu/~cxz/)<sup>1</sup>, [Kevin Wampler](http://www.kevinwampler.com/homepage/index.html)<sup>2</sup><br>
+> [Honglin Chen](https://www.cs.columbia.edu/~honglinchen/)<sup>1</sup>, [Changxi Zheng](http://www.cs.columbia.edu/~cxz/)<sup>1</sup>, [Kevin Wampler](http://www.kevinwampler.com/homepage/index.html)<sup>2</sup><br>
 > <sup>1</sup>Columbia University, <sup>2</sup>Adobe Research <br>
 > SIGGRAPH 2023 (Conference Track)
 
