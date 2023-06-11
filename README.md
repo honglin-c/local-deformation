@@ -2,17 +2,17 @@
 
 ### [Project Page](https://www.cs.columbia.edu/cg/local-deformation/)  | [Paper](https://arxiv.org/abs/2210.00124)
 
-<img src="https://github.com/honglin-c/INSR-PDE/blob/main/.github/images/teaser.png" width="500">
+<img src="https://github.com/honglin-c/local-deformation/blob/main/.github/images/teaser.png" width="800">
 
 Official implementation for the paper:
 > **[Simulating Physics with Implicit Neural Spatial Representations](https://www.cs.columbia.edu/cg/local-deformation/)**  
-> [Honglin Chen*](https://www.cs.columbia.edu/~honglinchen/)<sup>1</sup>, [Changxi Zheng](http://www.cs.columbia.edu/~cxz/)<sup>1</sup>, [Peter Yichen Chen](https://peterchencyc.com/)<sup>2</sup><br>
+> [Honglin Chen*](https://www.cs.columbia.edu/~honglinchen/)<sup>1</sup>, [Changxi Zheng](http://www.cs.columbia.edu/~cxz/)<sup>1</sup>, [Kevin Wampler](http://www.kevinwampler.com/homepage/index.html)<sup>2</sup><br>
 > <sup>1</sup>Columbia University, <sup>2</sup>Adobe Research <br>
 > SIGGRAPH 2023 (Conference Track)
 
 ## Installation
 
-This code is adapted from the WRAPD framework (https://www-users.cse.umn.edu/~brow2327/wrapd/) to support local elastic Neo-Hookean and ARAP deformation.
+This code is adapted from the [WRAPD framework](https://www-users.cse.umn.edu/~brow2327/wrapd/) to support local elastic Neo-Hookean and ARAP deformation.
 
 To compile the code, just `mkdir build`, `cd build`, `cmake ..  -DCMAKE_CXX_COMPILER=g++-12` and `make -j8`.
 
