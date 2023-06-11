@@ -10,23 +10,9 @@ Official implementation for the paper:
 > <sup>1</sup>Columbia University, <sup>2</sup>Adobe Research <br>
 > SIGGRAPH 2023 (Conference Track)
 
-## Installation
-
 This code is adapted from the [WRAPD framework](https://www-users.cse.umn.edu/~brow2327/wrapd/) to support local elastic Neo-Hookean and ARAP deformation.
 
-To compile the code, just `mkdir build`, `cd build`, `cmake ..  -DCMAKE_CXX_COMPILER=g++-12` and `make -j8`.
-
-To run the code, run the follwing command in the project root directory (for instance, to run the Neo-Hookean pig example):
-
-`OMP_NUM_THREADS=8 ./build/local -rest samples/data/pig/pig_rest.node -init samples/data/pig/pig_init0.4.node -handles samples/data/pig/pig_handles.txt -rw 0 -ra 0 -sys-rho 1e4 -bird-threshold 0.5  -bird-lambda 1e4`
-
-To run the pig example in the teaser,
-
-`OMP_NUM_THREADS=8 ./build/local -rest samples/data/pig/pig_rest.node -init samples/data/pig/pig_init_teaser.node -handles samples/data/pig/pig_handles.txt -rw 0 -ra 0 -sys-rho 1e4 -bird-threshold 0.5  -bird-lambda 1e4 -it 500`
-
-We provide the scripts to run various examples in `samples/tests/run_all.sh`.
-
-## Dependencies
+## Prerequisites
 
 **Required:** Git, CMake, BLAS, LAPACK, GFORTRAN, OpenMP
 
@@ -44,11 +30,21 @@ Note that you will need to place a license file in your root user directory.
 
 ## Installation
 
+To install the code:
+
 1. Verify that all the dependencies are installed (see above) 
 2. Clone the repository and go into to the project root directory.
 3. Copy the PARDISO library file (ending in `.so`) to `deps/pardiso/`
-4. Run `mkdir build && cd build && cmake .. && make -j`
+4. Run `mkdir build && cd build && cmake ..  -DCMAKE_CXX_COMPILER=g++-12 && make -j8`
 5. Go back to the project root directory
+
+To run the code, run the follwing command in the project root directory (for instance, to run the Neo-Hookean pig example in the teaser):
+
+```bash
+sh scripts/teaser/pig.sh
+```
+
+We provide the scripts to run various examples in `scripts/`.
 
 ## Using the software (example)
 
