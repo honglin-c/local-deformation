@@ -10,7 +10,7 @@ Official implementation for the paper:
 > <sup>1</sup>Columbia University, <sup>2</sup>Adobe Research <br>
 > SIGGRAPH 2023 (Conference Track)
 
-This code is adapted from the [WRAPD framework](https://www-users.cse.umn.edu/~brow2327/wrapd/) to support local elastic Neo-Hookean and ARAP deformation.
+This code is adapted from the [WRAPD framework](https://github.com/georgbrown/wrapd) to support local elastic Neo-Hookean and ARAP deformation.
 
 ## Prerequisites
 
@@ -26,19 +26,29 @@ PARDISO is strongly recommended. Without PARIDSO our algorithm will perform wors
 
 **To install PARDISO:**
 Go to https://www.pardiso-project.org/ and follow the instructions for downloading the library and configuring your license.
+Then copy the PARDISO library file (ending in `.so` or `.dylib`) to `deps/pardiso/`.
 Note that you will need to place a license file in your root user directory.
 
 ## Installation
 
-To install the code:
+To install the code, run the following commands:
+```bash
+mkdir build
+cd build
+cmake ..  -DCMAKE_CXX_COMPILER=g++-12
+make -j8
+cd ..
+```
 
-1. Verify that all the dependencies are installed (see above) 
-2. Clone the repository and go into to the project root directory.
-3. Copy the PARDISO library file (ending in `.so`) to `deps/pardiso/`
-4. Run `mkdir build && cd build && cmake ..  -DCMAKE_CXX_COMPILER=g++-12 && make -j8`
-5. Go back to the project root directory
+## Experiments
 
-To run the code, run the follwing command in the project root directory (for instance, to run the Neo-Hookean pig example in the teaser):
+Run each shell script under `scripts/` (in the project root directory) for the examples shown in the paper:
+
+```bash
+sh scripts/figure_name/xxx.sh
+```
+
+For instance,
 
 ```bash
 sh scripts/teaser/pig.sh
