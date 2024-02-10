@@ -235,14 +235,14 @@ void post_solve(std::shared_ptr<wrapd::Solver> solver) {
 
     std::cout << std::fixed;
     double local_s = algorithm_data->m_runtime.local_ms / 1000.;
-    double bird_s = algorithm_data->m_runtime.bird_ms / 1000.;
+    double sc_l1_s = algorithm_data->m_runtime.sc_l1_ms / 1000.;
     double global_s = algorithm_data->m_runtime.global_ms / 1000.;
     double refactor_s = algorithm_data->m_runtime.refactor_ms / 1000.;
 
     if (solver->m_settings.m_io.verbose() > 0) {
-        std::cout << "Final accumulated time (s): " << (local_s + global_s + bird_s + refactor_s) << std::endl;
+        std::cout << "Final accumulated time (s): " << (local_s + global_s + sc_l1_s + refactor_s) << std::endl;
         std::cout << "-- Local step 1(s): " << local_s << std::endl;
-        std::cout << "-- Local step 2(s): " << bird_s << std::endl;
+        std::cout << "-- Local step 2(s): " << sc_l1_s << std::endl;
         std::cout << "-- Global step (s): " << global_s << std::endl;
     }
 }

@@ -1,11 +1,11 @@
 # Local Deformation for Interactive Shape Editing
 
-### [Project Page](https://www.cs.columbia.edu/cg/local-deformation/)  | [Paper](https://arxiv.org/abs/2210.00124)
+### [Project Page](https://www.cs.columbia.edu/cg/local-deformation/)  | [Paper](https://arxiv.org/abs/2306.06550)
 
 <img src="https://github.com/honglin-c/local-deformation/blob/main/.github/images/teaser.png" width="800">
 
 Official implementation for the paper:
-> **[Simulating Physics with Implicit Neural Spatial Representations](https://www.cs.columbia.edu/cg/local-deformation/)**  
+> **[Local Deformation for Interactive Shape Editing](https://www.cs.columbia.edu/cg/local-deformation/)**  
 > [Honglin Chen](https://www.cs.columbia.edu/~honglinchen/)<sup>1</sup>, [Changxi Zheng](http://www.cs.columbia.edu/~cxz/)<sup>1</sup>, [Kevin Wampler](http://www.kevinwampler.com/homepage/index.html)<sup>2</sup><br>
 > <sup>1</sup>Columbia University, <sup>2</sup>Adobe Research <br>
 > SIGGRAPH 2023 (Conference Track)
@@ -35,7 +35,7 @@ To install the code, run the following commands:
 ```bash
 mkdir build
 cd build
-cmake ..  -DCMAKE_CXX_COMPILER=g++-12
+cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j8
 cd ..
 ```

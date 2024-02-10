@@ -33,7 +33,7 @@
 #include "GlobalStepBehavior.hpp"
 #include "MCL/MicroTimer.hpp"
 #include "MCL/LinearSolver.hpp"
-#include "BirdLossProjection.hpp"
+#include "SCL1LossProjection.hpp"
 
 namespace wrapd {
 
@@ -63,7 +63,7 @@ class ADMM {
     mcl::MicroTimer m_micro_timer;
     bool m_initialized;
 
-    std::shared_ptr<BirdLossProjection> m_bird_loss_projection;
+    std::shared_ptr<SCL1LossProjection> m_sc_l1_loss_projection;
 };
 
 }  // namespace wrapd

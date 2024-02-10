@@ -30,7 +30,7 @@ namespace wrapd {
 struct RuntimeData {
     double setup_solve_ms;
     double local_ms;  // total ms for local solver
-    double bird_ms;  // total ms for local solver
+    double sc_l1_ms;  // total ms for local solver
     double global_ms;  // total ms for global solver
     double refactor_ms;
     int inner_iters;  // total global step iterations
@@ -38,7 +38,7 @@ struct RuntimeData {
     RuntimeData() :
             setup_solve_ms(0),
             local_ms(0),
-            bird_ms(0),
+            sc_l1_ms(0),
             global_ms(0),
             refactor_ms(0),
             inner_iters(0),

@@ -52,7 +52,7 @@ bool ADMM::initialize(std::shared_ptr<System> sys, const Settings& settings) {
     }
     m_algorithm_data->m_runtime.setup_solve_ms += m_micro_timer.elapsed_ms();
 
-    m_bird_loss_projection = std::make_unique<BirdLossProjection>(m_system, m_algorithm_data);
+    m_sc_l1_loss_projection = std::make_unique<SCL1LossProjection>(m_system, m_algorithm_data);
 
     m_initialized = true;
     return true;
@@ -152,18 +152,18 @@ void ADMM::iterate() {
 
     m_system->update_defo_cache(m_algorithm_data->m_curr_x_free);  // TEMP(George)
 
-    // Bird loss project step
+    // sc_l1 loss project step
     m_micro_timer.reset();
-    m_bird_loss_projection->project(m_algorithm_data->m_curr_x_free);
-    m_algorithm_data->m_runtime.bird_ms += m_micro_timer.elapsed_ms();
+    m_sc_l1_loss_projection->project(m_algorithm_data->m_curr_x_free);
+    m_algorithm_data->m_runtime.sc_l1_ms += m_micro_timer.elapsed_ms();
 
-    m_system->update_bird_cache(m_bird_loss_projection->X_bird(m_algorithm_data->m_curr_x_free));
+    m_system->update_sc_l1_cache(m_sc_l1_loss_projection->X_sc_l1(m_algorithm_data->m_curr_x_free));
 
     // Global step (records runtime internally)
     m_global_step_behavior->global_step();
     double m_last_globalstep_delta_auglag_obj = m_global_step_behavior->last_step_delta_auglag();
 
-    m_bird_loss_projection->update_U(m_algorithm_data->m_curr_x_free);
+    m_sc_l1_loss_projection->update_U(m_algorithm_data->m_curr_x_free);
 
     // Reweighting step
     m_micro_timer.reset();

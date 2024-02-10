@@ -84,7 +84,7 @@ void AlgorithmData::update_per_iter_data() {
 }
 
 void AlgorithmData::update_per_iter_runtime() {
-    double curr_accumulated_time_ms = m_runtime.local_ms + m_runtime.global_ms + m_runtime.refactor_ms + m_runtime.bird_ms;
+    double curr_accumulated_time_ms = m_runtime.local_ms + m_runtime.global_ms + m_runtime.refactor_ms + m_runtime.sc_l1_ms;
     m_accumulated_time_s.push_back(curr_accumulated_time_ms / 1000.);
 }
 

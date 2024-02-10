@@ -53,12 +53,19 @@ find_package(Eigen3 REQUIRED)
 include_directories(SYSTEM ${EIGEN3_INCLUDE_DIR})
 
 # Check to see if PARDISO is available
-find_library(PARDISO
-  libpardiso600-GNU720-X86-64.so
-  libpardiso600-GNU800-X86-64.so
-	libpardiso600-MACOS-X86-64.dylib
-  PATHS ${CMAKE_CURRENT_SOURCE_DIR}/deps/pardiso
-)
+set(PARDISO_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/deps/pardiso/include")
+if (APPLE)
+	find_library(PARDISO
+		libpardiso.dylib
+		PATHS ${CMAKE_CURRENT_SOURCE_DIR}/deps/pardiso/lib
+	)
+else ()
+	find_library(PARDISO
+		libpardiso.so
+		PATHS ${CMAKE_CURRENT_SOURCE_DIR}/deps/pardiso/lib
+	)
+endif()
+include_directories(${PARDISO_INCLUDE_DIR})
 
 if (${PARDISO} MATCHES "NOTFOUND")
   message("\nNOT USING PARDISO -- algorithm performance will be much slower than reported in the paper!\n")
@@ -75,12 +82,12 @@ include_directories( ${MCLOPTLIB_DIR}/include )
 
 # Add project sources
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
-set( WRAPD_SRCS
+set( PROJ_SRCS
 	src/Math.hpp
 	src/GlobalStepBehavior.hpp
 	src/AlgorithmData.hpp
   src/AlgorithmData.cpp
-	src/BirdLossProjection.hpp
+	src/SCL1LossProjection.hpp
 	src/ADMM.hpp
 	src/ADMM.cpp
 	src/RuntimeData.hpp
@@ -98,7 +105,7 @@ set( WRAPD_SRCS
 )
 
 # Finally, create the library
-add_library( wrapd ${WRAPD_SRCS} )
+add_library( wrapd ${PROJ_SRCS} )
 
 set(LINKED_LIBS "${LINKED_LIBS};blas;lapack;gfortran;igl::core;igl::glfw;")
 

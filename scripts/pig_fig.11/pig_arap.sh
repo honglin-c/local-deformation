@@ -4,7 +4,7 @@ OMP_NUM_THREADS=8 ./build/local -rest samples/data/pig/pig_rest.node \
                                 -rw 0 \
                                 -ra 0 \
                                 -model arap \
-                                -sys-rho 1e-1 \
-                                -bird-threshold 0.01 \
-                                -bird-lambda 1e4 \
+                                -sys_rho 1e-1 \
+                                -sc_l1-threshold 0.01 \
+                                -sc_l1_w 1e4 \
                                 -it 500

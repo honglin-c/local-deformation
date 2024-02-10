@@ -3,7 +3,7 @@ OMP_NUM_THREADS=8 ./build/local -rest samples/data/teaser_cat/teaser_cat_rest.no
                                 -handles samples/data/teaser_cat/teaser_cat_handles.txt \
                                 -rw 0 \
                                 -ra 0 \
-                                -sys-rho 5e3 \
-                                -bird-threshold 0.01 \
-                                -bird-lambda 1e4 \
+                                -sys_rho 5e3 \
+                                -sc_l1-threshold 0.01 \
+                                -sc_l1_w 1e4 \
                                 -it 500

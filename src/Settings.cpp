@@ -160,18 +160,18 @@ bool Settings::parse_args(int argc, char **argv ) {
             double poisson;
             val >> poisson;
             m_model_settings.poisson(poisson);
-        } else if (arg == "-sys-rho") {
+        } else if (arg == "-sys_rho") {
             double temp;
             val >> temp;
             m_system_rho = temp;
-        } else if (arg == "-bird-lambda") {
+        } else if (arg == "-sc_l1_w") {
             double temp;
             val >> temp;
-            m_bird_lambda = temp;
-        } else if (arg == "-bird-threshold") {
+            m_sc_l1_w = temp;
+        } else if (arg == "-sc_l1-threshold") {
             double temp;
             val >> temp;
-            m_bird_threshold = temp;
+            m_sc_l1_threshold = temp;
         } else {
             throw std::runtime_error("Error: Unrecognized command-line argument: " + arg);
         }
@@ -207,7 +207,7 @@ void Settings::help() {
         " -ra: rotation awareness toggle                             [Default: 1]       (0=disabled, 1=enabled) \n" <<
         " -global_it: max # global step L-BFGS iters                 [Default: 100]     (any integer > 0) \n" <<        
         " -global_ls: linesearch in the global step                  [Default: 0]       (0=none, 1=backtracking) \n" <<
-        " -kappa: global step early exit coeff.                      [Default: 1.0]     (any float > 0)] \n" <<
+        " -kappa: global step early exit coeff.                      [Default: 1.0]     (any float > 0) \n" <<
         "\n" <<
         " Dynamic reweighting: \n" <<
         " -rw: dynamic reweighting toggle                            [Default: 1]       (0=disabled, 1=enabled) \n" <<
@@ -215,10 +215,14 @@ void Settings::help() {
         " -gamma: threshold for reweighting                          [Default:  1.5]    (any float >= 1.0) \n" <<
         " -beta_min: smallest allowable weight^2 mult                [Default:  0.1]    (any float >= 1.0) \n" <<
         " -beta_max: largest allowable weight^2 mult                 [Default: 10.0]    (any float >= 1.0) \n" <<
+        "\n" <<
+        " SC_L1 loss: \n" <<
+        " -sys_rho: ADMM penalty parameter (rho)                     [Default: 1e3]     (any float > 0) \n" <<
+        " -sc_l1_w: weight of the SC-L1 loss (w)                     [Default: 1e4]      (any float > 0) \n" <<
+        " -sc_l1-threshold: SC-L1 loss threshold (s)                 [Default: 0.5]    (any float > 0) \n" <<
     "==========================================\n";
     printf("%s", ss.str().c_str() );
     exit(0);
 }
-
 
 }  // namespace wrapd

@@ -82,7 +82,7 @@ class ModelSettings {
     ProxLSMethod elastic_prox_ls_method() const { return m_elastic_prox_ls_method; }
     int elastic_prox_iters() const { return m_elastic_prox_iters; }
 
-    bool use_bird_loss() const {return m_use_bird_loss; }
+    bool use_sc_l1_loss() const {return m_use_sc_l1_loss; }
 
  private:
     ElasticModel m_elastic_model;
@@ -94,7 +94,7 @@ class ModelSettings {
     ProxLSMethod m_elastic_prox_ls_method;
     int m_elastic_prox_iters;
 
-    bool m_use_bird_loss = true;
+    bool m_use_sc_l1_loss = true;
     
 };
 }  // namespace wrapd

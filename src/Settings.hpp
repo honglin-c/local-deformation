@@ -159,14 +159,14 @@ struct Settings {
             m_max_admm_iters = 5000;
             m_reweighting_delay = 50;
             m_system_rho = 1e3;
-            m_bird_threshold = 0.5;
-            m_bird_lambda = 1e4;
+            m_sc_l1_threshold = 0.5;
+            m_sc_l1_w = 1e4;
     }
 
     public: 
         double m_system_rho;
-        double m_bird_threshold;
-        double m_bird_lambda;
+        double m_sc_l1_threshold;
+        double m_sc_l1_w;
 };
 }  // namespace wrapd
 #endif  // SRC_SETTINGS_HPP_

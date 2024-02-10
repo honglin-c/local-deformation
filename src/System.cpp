@@ -29,8 +29,8 @@ System::System(const Settings &settings)
     m_constraints = std::make_shared<ConstraintSet>(ConstraintSet());
     m_initialized = false;
     rho = m_settings.m_system_rho;
-    lambda = m_settings.m_bird_lambda;
-    threshold = m_settings.m_bird_threshold;
+    sc_l1_w = m_settings.m_sc_l1_w;
+    sc_l1_threshold = m_settings.m_sc_l1_threshold;
 }
 
 void System::set_pins(
@@ -75,9 +75,9 @@ math::MatX3 System::get_b() {
         b += m_tet_elements->add_to_b();
     }
 
-    assert((m_X_free.rows() == m_X_bird.rows()) && "m_X_free and m_X_bird should have the same size");
+    assert((m_X_free.rows() == m_X_sc_l1.rows()) && "m_X_free and m_X_sc_l1 should have the same size");
 
-    b += rho * (m_X_free - m_X_bird);
+    b += rho * (m_X_free - m_X_sc_l1);
 
     return b;
 }
@@ -208,9 +208,9 @@ void System::update_defo_cache(const math::MatX3 &x_free, bool update_polar_data
     m_X_free = x_free;
 }
 
-void System::update_bird_cache(const math::MatX3 &x_bird) {
+void System::update_sc_l1_cache(const math::MatX3 &x_sc_l1) {
 
-    m_X_bird = x_bird;
+    m_X_sc_l1 = x_sc_l1;
 }
 
 
@@ -275,7 +275,7 @@ double System::global_obj_value(const math::MatX3 &x_free) {
         value += m_tet_elements->global_obj_value(x_free);
     }
 
-    value += 0.5 * rho * m_X_bird.squaredNorm();
+    value += 0.5 * rho * m_X_sc_l1.squaredNorm();
 
     return value;
 }
@@ -305,7 +305,7 @@ double System::global_obj_grad(
         }   
     }
 
-    grad += rho * m_X_bird;
+    grad += rho * m_X_sc_l1;
 
     return value;
 }

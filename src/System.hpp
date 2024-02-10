@@ -88,7 +88,7 @@ class System {
             m_X_init.row(idx) = X_init.row(i);
             m_X_soln.row(idx) = X_soln.row(i);
         }
-        m_X_bird = math::MatX3::Zero(size, 3);
+        m_X_sc_l1 = math::MatX3::Zero(size, 3);
         return (prev_n + n_verts);
     }
 
@@ -133,7 +133,7 @@ class System {
     void update_fix_cache(const math::MatX3& x_fix);
     void update_defo_cache(const math::MatX3& x_free, bool update_polar_data = true);
 
-    void update_bird_cache(const math::MatX3& x_bird);
+    void update_sc_l1_cache(const math::MatX3& x_sc_l1);
 
     void initialize_dual_vars(const math::MatX3 &X);
     void advance_dual_vars();
@@ -173,22 +173,17 @@ class System {
     math::MatX3 m_X_init;  // node positions, initial deformation
     math::MatX3 m_X_soln;  // node positions, solution from a previously run sim (if provided)
 
-    math::MatX3 m_X_bird;  // X−X0−Z+U for bird loss
+    math::MatX3 m_X_sc_l1;  // X−X0−Z+U for sc_l1 loss
     math::MatX3 m_X_free;  // X for the free vertices
 
     std::vector<math::Vec4i> m_tet_free_inds;
 
  public:
-    // double rho = 1e5; 
-    // double rho = 1e4;  // for NH model
-    // double rho = 5e-2;  // for ARAP model
-    // double rho = 1e4;  // for pig NH model
-    // double rho = 5e-3;  // for pig ARAP model
     double rho = 1e4;
 
-    // for bird loss
-    double threshold = 0.5;
-    double lambda = 1e4;
+    // for SC-L1 loss
+    double sc_l1_threshold = 0.5;
+    double sc_l1_w = 1e4;
 };
 
 }  // namespace wrapd

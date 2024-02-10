@@ -1,2 +1,6 @@
 build/
 output/*
+.vscode/
+*.so
+*.dylib
+deps/pardiso
