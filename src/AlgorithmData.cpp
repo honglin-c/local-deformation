@@ -133,9 +133,6 @@ void AlgorithmData::print_initial_data() const {  // X error
         std::cout << " X error  |";
     }
     std::cout << "flips| RW? |";
-    if (m_rot_awareness == Settings::RotAwareness::ENABLED) {
-        std::cout << "LS:DeltaAL|GS:DeltaAL| L-BFGS ";
-    }
     std::cout << std::endl;
     std::cout << "   init" << " |"
               << std::fixed
@@ -155,11 +152,6 @@ void AlgorithmData::print_initial_data() const {  // X error
               << m_flips_count[0] << " | "
               << std::setw(3)
               << m_reweighted[0] << " | ";
-    if (m_rot_awareness == Settings::RotAwareness::ENABLED) {
-        std::cout << "--------" << " | "
-              << "--------" << " | "
-              << "-----";
-    }
     std::cout << std::endl << std::fixed;
 }
 
@@ -185,13 +177,6 @@ void AlgorithmData::print_curr_iter_data() const {
               << m_flips_count[m_iter+1] << " | "
               << std::setw(3)
               << m_reweighted[m_iter+1] << " | ";
-    if (m_rot_awareness == Settings::RotAwareness::ENABLED) {
-        std::cout << std::setprecision(2)
-                  << m_per_iter_ls_delta_auglag[m_iter] << " | "
-                  << m_per_iter_gs_delta_auglag[m_iter] << " |"
-                  << std::setw(4)
-                  << m_per_iter_inner_iters[m_iter];
-    }
     std::cout << std::endl << std::fixed;
 }
 
@@ -219,13 +204,6 @@ void AlgorithmData::print_final_iter_data() const {
               << m_flips_count[i+1] << " | "
               << std::setw(3)
               << m_reweighted[i+1] << " | ";
-    if (m_rot_awareness == Settings::RotAwareness::ENABLED) {
-        std::cout << std::setprecision(2)
-                  << m_per_iter_ls_delta_auglag[i] << " | "
-                  << m_per_iter_gs_delta_auglag[i] << " |"
-                  << std::setw(4)
-                  << m_per_iter_inner_iters[i];
-    }
     std::cout << std::endl << std::fixed;
 }
 

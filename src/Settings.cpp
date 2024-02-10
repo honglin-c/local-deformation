@@ -204,13 +204,13 @@ void Settings::help() {
         " -beta_static: weight^2 mult (no reweighting)               [Default: 1.0]     (any float >= 1.0) \n" <<
         "\n" <<
         " Rotation awareness: \n" <<
-        " -ra: rotation awareness toggle                             [Default: 1]       (0=disabled, 1=enabled) \n" <<
+        " -ra: rotation awareness toggle                             [Default: 0]       (0=disabled, 1=enabled) \n" <<
         " -global_it: max # global step L-BFGS iters                 [Default: 100]     (any integer > 0) \n" <<        
         " -global_ls: linesearch in the global step                  [Default: 0]       (0=none, 1=backtracking) \n" <<
         " -kappa: global step early exit coeff.                      [Default: 1.0]     (any float > 0) \n" <<
         "\n" <<
         " Dynamic reweighting: \n" <<
-        " -rw: dynamic reweighting toggle                            [Default: 1]       (0=disabled, 1=enabled) \n" <<
+        " -rw: dynamic reweighting toggle                            [Default: 0]       (0=disabled, 1=enabled) \n" <<
         " -rw_delay: # ADMM iters to use static rest weights         [Default: 50]      (any integer > 0) \n" <<
         " -gamma: threshold for reweighting                          [Default:  1.5]    (any float >= 1.0) \n" <<
         " -beta_min: smallest allowable weight^2 mult                [Default:  0.1]    (any float >= 1.0) \n" <<

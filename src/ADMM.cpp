@@ -43,13 +43,8 @@ bool ADMM::initialize(std::shared_ptr<System> sys, const Settings& settings) {
     m_algorithm_data->m_curr_x_fix = m_algorithm_data->m_init_x_fix;
     m_algorithm_data->m_init_x_free = m_algorithm_data->m_curr_x_free;
     m_system->update_fix_cache(m_algorithm_data->m_curr_x_fix);
-    if (m_settings.m_rot_awareness == Settings::RotAwareness::DISABLED) {
-        m_global_step_behavior = std::make_unique<UnawareGS>(m_settings, m_system, m_algorithm_data);
-    } else if (m_settings.m_rot_awareness == Settings::RotAwareness::ENABLED) {
-        m_global_step_behavior = std::make_unique<RotAwareGS>(m_settings, m_system, m_algorithm_data); 
-    } else {
-        throw std::runtime_error("Error: Invalid rot_awareness in ADMM::initialize.");
-    }
+    // use direct solve for the global linear solve
+    m_global_step_behavior = std::make_unique<DirectSolveGS>(m_settings, m_system, m_algorithm_data);
     m_algorithm_data->m_runtime.setup_solve_ms += m_micro_timer.elapsed_ms();
 
     m_sc_l1_loss_projection = std::make_unique<SCL1LossProjection>(m_system, m_algorithm_data);

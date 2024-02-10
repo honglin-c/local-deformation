@@ -115,9 +115,9 @@ class GlobalStepBehavior {
  private:
 };
 
-class UnawareGS : public GlobalStepBehavior {
+class DirectSolveGS : public GlobalStepBehavior {
  public:
-    UnawareGS(const Settings &settings, std::shared_ptr<System> system, std::shared_ptr<AlgorithmData> algorithm_data) 
+    DirectSolveGS(const Settings &settings, std::shared_ptr<System> system, std::shared_ptr<AlgorithmData> algorithm_data) 
         : GlobalStepBehavior(settings, system, algorithm_data) {
 
         m_b = math::MatX3::Zero(m_algorithm_data->num_free_verts(), 3);
@@ -193,9 +193,9 @@ class UnawareGS : public GlobalStepBehavior {
 };
 
 
-class RotAwareGS : public GlobalStepBehavior {
+class LbfgsGS : public GlobalStepBehavior {
  public:
-    RotAwareGS(const Settings &settings, std::shared_ptr<System> system, std::shared_ptr<AlgorithmData> algorithm_data) 
+    LbfgsGS(const Settings &settings, std::shared_ptr<System> system, std::shared_ptr<AlgorithmData> algorithm_data) 
         : GlobalStepBehavior(settings, system, algorithm_data),
           m_problem(GlobalProblem(settings, system, algorithm_data)) {
         m_lbfgs_solver.update_A0(m_A, true);

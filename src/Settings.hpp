@@ -152,8 +152,8 @@ struct Settings {
 
     //
     Settings() {            
-            m_rot_awareness = RotAwareness::ENABLED;
-            m_reweighting = Reweighting::ENABLED;
+            m_rot_awareness = RotAwareness::DISABLED;
+            m_reweighting = Reweighting::DISABLED;
             m_gamma = 1.5;
             m_tol = 1.e-11;
             m_max_admm_iters = 5000;
