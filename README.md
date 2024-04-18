@@ -10,7 +10,7 @@ Official implementation for the paper:
 > <sup>1</sup>Columbia University, <sup>2</sup>Adobe Research <br>
 > SIGGRAPH 2023 (Conference Track)
 
-This code (and readme) is adapted from the [WRAPD framework](https://github.com/georgbrown/wrapd) to support local elastic Neo-Hookean and ARAP deformation.
+This code (and readme) is adapted from the [WRAPD framework](https://github.com/georgbrown/wrapd) to support local elastic Neo-Hookean and ARAP deformation in 3D.
 
 ## Prerequisites
 
