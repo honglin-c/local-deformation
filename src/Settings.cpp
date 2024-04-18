@@ -218,8 +218,11 @@ void Settings::help() {
         "\n" <<
         " SC_L1 loss: \n" <<
         " -sys_rho: ADMM penalty parameter (rho)                     [Default: 1e3]     (any float > 0) \n" <<
-        " -sc_l1_w: weight of the SC-L1 loss (w)                     [Default: 1e4]      (any float > 0) \n" <<
-        " -sc_l1-threshold: SC-L1 loss threshold (s)                 [Default: 0.5]    (any float > 0) \n" <<
+        "           {Recommended value: 1e-1 for ARAP model, 1e3 ~ 5e5 for Neo-Hookean model (may require tuning)}           \n" <<    
+        " -sc_l1_w: weight of the SC-L1 loss (w)                     [Default: 1e4]     (any float > 0) \n" <<
+        "           {Recommended value: 1e4}                                                            \n" <<    
+        " -sc_l1-threshold: SC-L1 loss threshold (s)                 [Default: 0.1]     (any float > 0) \n" <<
+        "           {Recommended value: 0.01 * max_extent_of_bounding_box}                              \n" <<    
     "==========================================\n";
     printf("%s", ss.str().c_str() );
     exit(0);

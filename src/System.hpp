@@ -182,7 +182,7 @@ class System {
     double rho = 1e4;
 
     // for SC-L1 loss
-    double sc_l1_threshold = 0.5;
+    double sc_l1_threshold = 0.1;
     double sc_l1_w = 1e4;
 };
 

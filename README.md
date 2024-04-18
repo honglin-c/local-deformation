@@ -10,7 +10,7 @@ Official implementation for the paper:
 > <sup>1</sup>Columbia University, <sup>2</sup>Adobe Research <br>
 > SIGGRAPH 2023 (Conference Track)
 
-This code is adapted from the [WRAPD framework](https://github.com/georgbrown/wrapd) to support local elastic Neo-Hookean and ARAP deformation.
+This code (and readme) is adapted from the [WRAPD framework](https://github.com/georgbrown/wrapd) to support local elastic Neo-Hookean and ARAP deformation.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ PARDISO is strongly recommended. Without PARIDSO our algorithm will perform wors
 
 **To install PARDISO:**
 Go to https://www.pardiso-project.org/ and follow the instructions for downloading the library and configuring your license.
-Then copy the PARDISO library file (ending in `.so` or `.dylib`) to `deps/pardiso/`.
+Then copy the PARDISO library file (ending in `.so` or `.dylib`) to `deps/pardiso/lib` and the PARDISO header file (ending in `.h`) to `deps/pardiso/include`.
 Note that you will need to place a license file in your root user directory.
 
 ## Installation

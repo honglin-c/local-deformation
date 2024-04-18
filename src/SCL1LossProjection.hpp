@@ -87,7 +87,7 @@ class SCL1LossProjection{
     math::MatX3 m_X0;
 
     std::vector<double> VA;
-    double sc_l1_threshold = 0.5;
+    double sc_l1_threshold = 0.1;
     double sc_l1_w = 1e4;
 };
 

@@ -156,10 +156,10 @@ struct Settings {
             m_reweighting = Reweighting::DISABLED;
             m_gamma = 1.5;
             m_tol = 1.e-11;
-            m_max_admm_iters = 5000;
+            m_max_admm_iters = 500;
             m_reweighting_delay = 50;
             m_system_rho = 1e3;
-            m_sc_l1_threshold = 0.5;
+            m_sc_l1_threshold = 0.1;
             m_sc_l1_w = 1e4;
     }
 
